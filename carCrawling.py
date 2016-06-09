@@ -9,7 +9,7 @@ def Crawling():
         webpage = urlopen(html).read()
         soup = BeautifulSoup(webpage , from_encoding="utf-8")
         car_title = soup.find_all("div" ,class_="title") # 배열
-        print(car_title.getText())
+        print(car_title.text)
         car_fuel = soup.find_all("div" , class_="spec info")
         for f in car_fuel :
             fuel_num = f.find_all("span", text = '㎞/ℓ')
