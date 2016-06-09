@@ -12,8 +12,9 @@ def Crawling():
         car_title = soup.find_all("div" ,class_="title") # 배열
         for i in car_title:
             titles.append(i.text)
-            titles.replace('\n','')
+        titles = [re.replace("\n","") for re in titles]
         print(titles)
+
 
         car_fuel = soup.find_all("div" , class_="spec info")
         print(len(car_fuel))
