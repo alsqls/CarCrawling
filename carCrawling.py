@@ -19,7 +19,7 @@ def Crawling():
         car_fuel = soup.find_all("div" , class_="spec info")
         print(len(car_fuel))
         for f in car_fuel :
-            fuel_num.append(f.find_all("span", text = '㎞/ℓ').text)
+            fuel_num.append(f.find_all("span", class_="num").text)
         fuel_num = [re.replace("\n","") for re in fuel_num]
         print(fuel_num)
         car_price = soup.find_all("div" ,class_="price")
