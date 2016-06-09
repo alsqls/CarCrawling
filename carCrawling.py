@@ -10,7 +10,7 @@ def Crawling():
         soup = BeautifulSoup(webpage , from_encoding="utf-8")
 
         car_title = soup.find_all("div" ,class_="title") # 배열
-        for i in range(len(car_title)):
+        for i in car_title:
             titles.append(i.text)
         print(titles)
 
