@@ -11,7 +11,7 @@ def Crawling():
         car_title = soup.find_all("div" ,class_="title") # 배열
         #print(car_title)
 
-        car_fuel = soup.find("div" , { "class" : "spec info"} ).next_element.next_element.next_element.find_all("span",class_="num")
+        car_fuel = soup.find_all("div" , class_="spec info")
         print(car_fuel)
         car_price = soup.find_all("div" ,class_="price")
 
