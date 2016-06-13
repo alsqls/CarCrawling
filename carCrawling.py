@@ -23,7 +23,7 @@ def Crawling():
         print(fuel_num)
 
         for check in fuel_num :
-            if fuel_num[check] is '~' :
+            if fuel_num[check] is str("~") :
                 fuel_num = fuel_num[check+1:len(fuel_num)]
         print("eeeeeee"+fuel_num)
 
