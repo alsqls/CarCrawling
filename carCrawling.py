@@ -16,12 +16,16 @@ def Crawling():
             titles.append(i.text)
         titles = [re.replace("\n","") for re in titles]
         #print(titles)
-
         car_fuel = soup.find_all("div" , class_="spec info")
         print(len(car_fuel)) #20
         for f in car_fuel :
             fuel_num.append(f.find("span", class_="num").text.strip())
         print(fuel_num)
+
+        for check in fuel_num :
+            if fuel_num[check] is '~' :
+                fuel_num = fuel_num[check+1:len(fuel_num)]
+        print("eeeeeee"+fuel_num)
 
         car_price = soup.find_all("div" ,class_="price")
         for f in car_price :
