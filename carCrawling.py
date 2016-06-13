@@ -23,8 +23,8 @@ def Crawling():
         print(fuel_num)
 
         for check in fuel_num :
-            if fuel_num[check] is str("~") :
-                fuel_num = fuel_num[check+1:len(fuel_num)]
+            if fuel_num.find("~"):
+                fuel_num = fuel_num[check+1:]
         print("eeeeeee"+fuel_num)
 
         car_price = soup.find_all("div" ,class_="price")
