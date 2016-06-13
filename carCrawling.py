@@ -20,16 +20,16 @@ def Crawling():
         print(len(car_fuel)) #20
         for f in car_fuel :
             fuel_num.append(f.find("span", class_="num").text.strip())
+            if fuel_num is str("미정") :
+                fuel_num = replace("미정","0")
+            else :
+                check = fuel_num.index("~")
+                fuel_num = fuel_num[check:]
         print(fuel_num)
-
-        for check in fuel_num :
-            if fuel_num.find("~"):
-                fuel_num = fuel_num[check+1:]
-        print("eeeeeee"+fuel_num)
 
         car_price = soup.find_all("div" ,class_="price")
         for f in car_price :
-            price_num.append(f.find_all("span", class_="num"))
+            price_num.append(f.find("span", class_="num").text.strip())
         print(price_num)
 
 # text = '키워드'
