@@ -23,7 +23,8 @@ def Crawling():
             if fuel_num is str("미정") :
                 fuel_num = replace("미정","0")
             else :
-                fuel_num = fuel_num[fuel_num.index(~):]
+                check = fuel_num.index(~)
+                fuel_num = fuel_num[check:]
         print(fuel_num)
 
         car_price = soup.find_all("div" ,class_="price")
