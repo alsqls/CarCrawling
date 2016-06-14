@@ -38,12 +38,10 @@ def Crawling():
             price = f.find("span", class_="num").text.strip()
             if '~' in price:
                 price = price[price.index('~')+1:]
-                price = price[:price.index(' ')]
             elif '미정' in fuel:
                 fuel = "NA"
             else :
-                price = price[:price.index(' ')]
-
+                price = price
             price = price.replace(',','')
             price_num.append(price)
         print(price_num)
