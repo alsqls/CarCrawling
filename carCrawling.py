@@ -21,8 +21,6 @@ def Crawling():
         print(titles)
 
         car_fuel = soup.find_all("div" , class_="spec info")
-        print(len(car_fuel)) #20
-
         for f in car_fuel :
             fuel = f.find("span", class_="num").text.strip()
             if '~' in fuel:
@@ -34,6 +32,7 @@ def Crawling():
                 fuel = fuel[:fuel.index(' ')]
 
             fuel_num.append(fuel)
+        print(len(fuel_num)) #20
         print(fuel_num)
 
         car_price = soup.find_all("div" ,class_="price")
@@ -47,6 +46,7 @@ def Crawling():
                 price = price
             price = price.replace(',','')
             price_num.append(price)
+        print(len(price_num))
         print(price_num)
 
 if __name__ == '__main__' :
