@@ -20,7 +20,9 @@ def Crawling():
         car_fuel = soup.find_all("div" , class_="spec info")
         print(len(car_fuel)) #20
         for f in car_fuel :
-            fuel_num.append(f.find("span", class_="num").text.strip())
+            fuel = f.find("span", class_="num").text.strip()
+            fuel = fuel[fuel.index('~'):]
+            print(fuel)
             '''
             if fuel_num is not str("미정") :
                 print(fuel_num)
