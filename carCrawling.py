@@ -12,11 +12,13 @@ def Crawling():
         webpage = urlopen(html).read()
         soup = BeautifulSoup(webpage , from_encoding="utf-8")
 
-        car_title = soup.find_all("div" ,class_="title")
+        tmp = soup.find("ul" ,class_="modelList listType")
+        car_title = tmp.find_all("div" ,class_="title")
         for i in car_title:
             titles.append(i.text)
         titles = [re.replace("\n","") for re in titles]
         print(titles)
+
         car_fuel = soup.find_all("div" , class_="spec info")
         print(len(car_fuel)) #20
 
@@ -38,7 +40,7 @@ def Crawling():
             price = f.find("span", class_="num").text.strip()
             if '~' in price:
                 price = price[price.index('~')+1:]
-            elif '미정' in fuel:
+            elif '미정' in price:
                 fuel = "NA"
             else :
                 price = price
