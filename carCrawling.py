@@ -1,6 +1,7 @@
 from urllib.request import Request, urlopen
 import urllib.parse
 from bs4 import BeautifulSoup
+import csv
 #-*- coding:utf-8 -*-
 def Crawling():
     titles = [] # 차 이름
