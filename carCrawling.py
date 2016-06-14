@@ -21,7 +21,12 @@ def Crawling():
         print(len(car_fuel)) #20
         for f in car_fuel :
             fuel = f.find("span", class_="num").text.strip()
-            fuel = fuel[fuel.index('~'):]
+            if '~' is in fuel:
+                fuel = fuel[fuel.index('~'):]
+            elif '미정' is in fuel:
+                fuel = "NA"
+            else :
+                fuel = fuel
             print(fuel)
             '''
             if fuel_num is not str("미정") :
