@@ -6,6 +6,7 @@ def Crawling():
     titles = [] # 차 이름
     fuel_num = [] # 차 연비
     price_num = [] # 차 가격
+
     for page in range(1,15):
         html = Request('http://auto.danawa.com/newcar/?Work=search&Tab=&Brand=&Classify=&Fuel=&Tm=&Price=&Efficiency=&EfficiencyKind=&DriveWheel=&Displace=&ListType=list&Order=2&Punit=20&ListType=list&Page=' + str(page) , headers={'User-Agent':'Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30)'})
         webpage = urlopen(html).read()
@@ -20,11 +21,13 @@ def Crawling():
         print(len(car_fuel)) #20
         for f in car_fuel :
             fuel_num.append(f.find("span", class_="num").text.strip())
+            '''
             if fuel_num is not str("미정") :
+                print(fuel_num)
                 fuel_num = fuel_num[fuel_num.index('~'):]
             else :
                 fuel_num = fuel_num.replace("미정","0")
-
+            '''
         print(fuel_num)
 
         car_price = soup.find_all("div" ,class_="price")
