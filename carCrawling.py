@@ -8,7 +8,7 @@ def Crawling():
     fuel_num = [] # 차 연비
     price_num = [] # 차 가격
     csvFile = open("car_sh.csv","w") # w는 덮어 씌우기 a는 이어쓰기
-    cw = csv.writer(csvFile, delimeter=',')
+    cw = csv.writer(csvFile, delimiter=',')
     cw.writerow(["Name", "Fuel", "Price"])
     for page in range(1,15):
         html = Request('http://auto.danawa.com/newcar/?Work=search&Tab=&Brand=&Classify=&Fuel=&Tm=&Price=&Efficiency=&EfficiencyKind=&DriveWheel=&Displace=&ListType=list&Order=2&Punit=20&ListType=list&Page=' + str(page) , headers={'User-Agent':'Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30)'})
