@@ -17,6 +17,7 @@ def Crawling():
         for i in car_title:
             titles.append(i.text)
         titles = [re.replace("\n","") for re in titles]
+        print(len(titles))
         print(titles)
 
         car_fuel = soup.find_all("div" , class_="spec info")
@@ -39,9 +40,9 @@ def Crawling():
         for f in car_price :
             price = f.find("span", class_="num").text.strip()
             if '~' in price:
-                price = price[price.index('~')+1:]
+                price = price[price.index('~')+2:]
             elif '미정' in price:
-                fuel = "NA"
+                price = "NA"
             else :
                 price = price
             price = price.replace(',','')
