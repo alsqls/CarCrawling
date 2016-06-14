@@ -16,9 +16,10 @@ def Crawling():
         for i in car_title:
             titles.append(i.text)
         titles = [re.replace("\n","") for re in titles]
-        #print(titles)
+        print(titles)
         car_fuel = soup.find_all("div" , class_="spec info")
         print(len(car_fuel)) #20
+
         for f in car_fuel :
             fuel = f.find("span", class_="num").text.strip()
             if '~' in fuel:
@@ -28,24 +29,24 @@ def Crawling():
                 fuel = "NA"
             else :
                 fuel = fuel[:fuel.index(' ')]
-            print(fuel)
-            '''
-            if fuel_num is not str("미정") :
-                print(fuel_num)
-                fuel_num = fuel_num[fuel_num.index('~'):]
-            else :
-                fuel_num = fuel_num.replace("미정","0")
-            '''
+
+            fuel_num.append(fuel)
         print(fuel_num)
 
         car_price = soup.find_all("div" ,class_="price")
         for f in car_price :
-            price_num.append(f.find("span", class_="num").text.strip())
+            price = f.find("span", class_="num").text.strip()
+            if '~' in price:
+                price = price[price.index('~')+1:]
+                price = price[:price.index(' ')]
+            elif '미정' in fuel:
+                fuel = "NA"
+            else :
+                price = price[:price.index(' ')]
+
+            price = price.replace(',','')
+            price_num.append(price)
         print(price_num)
-
-# text = '키워드'
-#<span class="num">10.8~13.0 ㎞/ℓ</span>
-
 
 if __name__ == '__main__' :
     Crawling()
